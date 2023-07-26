@@ -3,11 +3,11 @@ import { writeLegend } from "../writeLegend";
 export const questionSeven = () => {
   let inputSevenQ = document.getElementById("sevenQ-field");
   let textSevenQ = document.getElementById("sevenQ-legend");
-  const sum = 0;
   const ZERO = 0;
 
   inputSevenQ.addEventListener("change", (e) => {
     let isNumberPositive = e.target.value > ZERO;
+    let sum = 0;
 
     if (isNumberPositive) {
       for (let i = 0; i <= e.target.value; i++) {
