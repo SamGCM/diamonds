@@ -17,9 +17,12 @@ export const questionTwelve = () => {
     }
 
     function lowerCaseLastLetter(text) {
-      let letter = text[size - indexLastLetter];
-      let newWord = text.replace(letter, letter.toUpperCase());
-      return newWord;
+      let arrLetters = text.split("");
+      let lastLetterUpper = arrLetters[indexLastLetter].toUpperCase();
+
+      arrLetters[indexLastLetter] = lastLetterUpper;
+
+      return arrLetters.join("");
     }
 
     word = upperCaseFirstLetter(word);
