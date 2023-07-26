@@ -9,6 +9,7 @@ import { questionThree } from "./questions/questionThree";
 import { questionTwelve } from "./questions/questionTwelve";
 import { questionTwo } from "./questions/questionTwo";
 import { questionEleven } from "./questions/questionEleven";
+import { questionSix } from "./questions/questionSix";
 
 questionOne();
 
@@ -19,6 +20,8 @@ questionThree();
 questionFour();
 
 questionFive();
+
+questionSix();
 
 questionSeven();
 
