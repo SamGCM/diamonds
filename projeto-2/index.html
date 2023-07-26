@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projeto Javascript</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div class="box">
+      <h2 class="title-section">
+        1. Número par ou ímpar
+      </h2>
+      <div
+        id="collapseOne"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="firstQ-field"
+        />
+        <p id="firstQ-legend" class="legend"></p>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title-section">
+        2. Número maior
+      </h2>
+      <div id="collapseTwo" class="sub-box" data-bs-parent="#accordionExample">
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="secondQ-field-one"
+        />
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="secondQ-field-two"
+        />
+        <button class="submit" id="btn-submit-secondQ">
+          Avaliar
+        </button>
+        <p id="secondQ-legend" class="legend"></p>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title-section">
+        3. Pode votar nesse ano?
+      </h2>
+      <div
+        id="collapseThree"
+        class="sub-box"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Ano de nascimento"
+          type="number"
+          id="thirdQ-field"
+        />
+        <button class="submit" id="btn-submit-thirdQ">
+          Calcular
+        </button>
+        <p id="thirdQ-legend" class="legend"></p>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo"
+        >
+          4. Calcular reajuste salário
+        </button>
+      </h2>
+      <div id="collapseFour" class="sub-box" data-bs-parent="#accordionExample">
+        <input placeholder="Salário" type="number" id="fourQ-field-one" />
+        <input
+          placeholder="Percentual de reajuste"
+          type="number"
+          id="fourQ-field-two"
+        />
+        <button class="submit" id="btn-submit-fourQ">
+          Calcular reajuste
+        </button>
+        <p id="fourQ-legend" class="legend"></p>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          5. Dia da semana
+        </button>
+      </h2>
+      <div
+        id="collapseFive"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira um número de 1 a 7"
+          type="number"
+          id="fiveQ-field"
+        />
+        <p id="fiveQ-legend" class="legend"></p>
+      </div>
+    </div>
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSix"
+          aria-expanded="true"
+          aria-controls="collapseSix"
+        >
+          6. Contador
+        </button>
+      </h2>
+      <div
+        id="collapseFive"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="sixQ-field"
+        />
+        <p id="sixQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSix"
+          aria-expanded="true"
+          aria-controls="collapseSix"
+        >
+          7. Somador
+        </button>
+      </h2>
+      <div
+        id="collapseSeven"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="sevenQ-field"
+        />
+        <p id="sevenQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseEight"
+          aria-expanded="true"
+          aria-controls="collapseSix"
+        >
+          8. Contador de números ímpares
+        </button>
+      </h2>
+      <div
+        id="collapseEight"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira um número inteiro"
+          type="number"
+          id="eightQ-field"
+        />
+        <p id="eightQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseEight"
+          aria-expanded="true"
+          aria-controls="collapseSix"
+        >
+          9. Soma de lista de números separados por "-"
+        </button>
+      </h2>
+      <div
+        id="collapseNine"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input placeholder="10-20-30-40" type="text" id="nineQ-field" />
+        <p id="nineQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTen"
+          aria-expanded="true"
+          aria-controls="collapseTen"
+        >
+          10. Soma de lista de números separados por "/"
+        </button>
+      </h2>
+      <div
+        id="collapseTen"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input placeholder="10/20/30/40" type="text" id="tenQ-field" />
+        <p id="tenQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseEleven"
+          aria-expanded="true"
+          aria-controls="collapseEleven"
+        >
+          11. Frase reversa
+        </button>
+      </h2>
+      <div
+        id="collapseEleven"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira uma frase ou palavra"
+          type="text"
+          id="elevenQ-field"
+        />
+        <p id="elevenQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2 class="title-section">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseEleven"
+          aria-expanded="true"
+          aria-controls="collapseEleven"
+        >
+          12. Transformar letra minúscula em maiúscula
+        </button>
+      </h2>
+      <div
+        id="collapseEleven"
+        class="sub-box show"
+        data-bs-parent="#accordionExample"
+      >
+        <input
+          placeholder="Insira uma palavra"
+          type="text"
+          id="twelveQ-field"
+        />
+        <p id="twelveQ-legend" class="legend"></p>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
