@@ -11,9 +11,9 @@ export const questionThree = () => {
     let yearOfBirth = new Date(inputThirdQ.value.toString()).getFullYear();
     let result = actualYear - (yearOfBirth + 1);
 
-    if (result > minimunAge) {
+    if (result >= minimunAge) {
       writeLegend(textThirdQ, `Você pode votar! Você tem ${result} anos`);
-    } else if (result < minimunAge) {
+    } else if (result <= minimunAge) {
       writeLegend(textThirdQ, `Você não pode votar! Você tem ${result} anos`);
     } else {
       writeLegend(
