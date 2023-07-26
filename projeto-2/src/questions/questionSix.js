@@ -4,6 +4,7 @@ export const questionSix = () => {
   let inputSixQ = document.getElementById("sixQ-field");
   let textSixQ = document.getElementById("sixQ-legend");
   const ZERO = 0;
+
   inputSixQ.addEventListener("change", (e) => {
     let numberIsPositive = e.target.value > ZERO;
 
