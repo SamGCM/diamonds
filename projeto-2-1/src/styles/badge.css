@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    background: #76b852;
+    background: rgb(141, 194, 111);
+    background: linear-gradient(
+      90deg,
+      rgba(141, 194, 111, 1) 0%,
+      rgba(118, 184, 82, 1) 50%
+    );
+    font-family: "Roboto", sans-serif;
+}
+
+.container-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  
+.container-main-badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  background: #ffffff;
+  width: fit-content;
+  padding: 0px 25px 25px 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#image {
+  border-radius: 5px;
+  width: 65px;
+  height: 65px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+#content-container-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#container-main-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#content-sub-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub-content-col {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.sub-content-col > div {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin: 5px 10px;
+}
+
+.sub-content-col > div > p {
+  margin: 2px 0px 5px 0px;
+}
+
+#id-number {
+  font-weight: 900;
+}
+
+.col-field-legend {
+  color: rgb(185, 185, 185);
+  font-weight: lighter;
+}
+
+@media (max-width: 320px) {
+  #content-container-image {
+    width: 100%;
+    align-items: center;
+  }
+}
