@@ -7,6 +7,10 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { BannerComponent } from './banner/banner.component';
 import { CategoriesCardComponent } from './categories-card/categories-card.component';
 import { CardCategoryComponent } from './card-category/card-category.component';
+import { CarouselMoviesComponent } from './carousel-movies/carousel-movies.component';
+import { MoviesService } from './services/movies.services';
+import { NgxConveyerModule } from '@egjs/ngx-conveyer';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,13 +18,16 @@ import { CardCategoryComponent } from './card-category/card-category.component';
     TopbarComponent,
     BannerComponent,
     CategoriesCardComponent,
-    CardCategoryComponent
+    CardCategoryComponent,
+    CarouselMoviesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxConveyerModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
