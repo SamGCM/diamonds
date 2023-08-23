@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { BannerComponent } from './banner/banner.component';
+import { CategoriesCardComponent } from './categories-card/categories-card.component';
+import { CardCategoryComponent } from './card-category/card-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    BannerComponent
+    BannerComponent,
+    CategoriesCardComponent,
+    CardCategoryComponent
   ],
   imports: [
     BrowserModule,

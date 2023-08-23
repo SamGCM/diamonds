@@ -1,0 +1,19 @@
+.card{
+  max-width: 250px;
+  max-height: 140px;
+  overflow: hidden;
+}
+
+.row {
+  margin: 20px 0px;
+}
+
+.card-img-overlay {
+  background: #30303067;
+  cursor: pointer;
+
+  &:hover {
+    background: #18181867;
+
+  }
+}
