@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MovieDetail } from './shared/movieDetail.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projeto-5';
+
+  movieDetailId: number;
+
+  getMovieDetail(id: number) {
+    this.movieDetailId = id;
+  }
 }

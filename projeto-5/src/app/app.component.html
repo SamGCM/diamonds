@@ -2,5 +2,13 @@
     <app-topbar/>
     <app-banner/>
     <app-categories-card/>
-    <app-carousel-movies/>
+    <app-carousel-movies
+      title="Populares"
+      (movieClick)="getMovieDetail($event)"
+    />
+    <app-carousel-movies
+      title="Mais avaliados"
+      (movieClick)="getMovieDetail($event)"
+    />
+    <app-modal-detail movieId={{movieDetailId}} />
 </main>

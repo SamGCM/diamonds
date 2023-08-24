@@ -11,6 +11,8 @@ import { CarouselMoviesComponent } from './carousel-movies/carousel-movies.compo
 import { MoviesService } from './services/movies.services';
 import { NgxConveyerModule } from '@egjs/ngx-conveyer';
 import { HttpClientModule } from '@angular/common/http';
+import { PosterMovieComponent } from './poster-movie/poster-movie.component';
+import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     BannerComponent,
     CategoriesCardComponent,
     CardCategoryComponent,
-    CarouselMoviesComponent
+    CarouselMoviesComponent,
+    PosterMovieComponent,
+    ModalDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MoviesService } from '../services/movies.services';
 import { Movie } from '../shared/movie.model';
 import { MovieDetail } from '../shared/movieDetail.model';
@@ -11,23 +11,36 @@ import { MovieDetail } from '../shared/movieDetail.model';
 })
 export class CarouselMoviesComponent implements OnInit {
 
-  public movies: Movie[];
+  public moviesList: Movie[];
+
   public movieDetail: MovieDetail;
+
+  @Input() title: "Populares" | "Mais avaliados";
+
+  @Output() movieClick = new EventEmitter<number>();
 
   constructor(
     private moviesService: MoviesService
   ){}
 
   ngOnInit() {
-    this.moviesService.getMovies().subscribe((response: any) =>{
-      this.movies = response.results
-    })
+
+    if(this.title === "Populares") {
+      this.moviesService.getMoviesPopulars().subscribe((response: any) =>{
+        this.moviesList = response.results
+      })
+    }
+
+    if(this.title === "Mais avaliados") {
+      this.moviesService.getMoviesTopRated().subscribe((response: any) =>{
+        this.moviesList = response.results
+      })
+    }
+
   }
 
   getMovieDetail(id: number) {
-    this.moviesService.getMovieDetail(id).subscribe((response: any) =>{
-      this.movieDetail = response
-    })
+    this.movieClick.emit(id)
   }
 
 

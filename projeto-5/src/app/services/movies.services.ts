@@ -20,9 +20,17 @@ export class MoviesService {
     })
   }
 
-  public getMovies(): Observable<any> {
+  public getMoviesPopulars(): Observable<any> {
 
     return this.http.get(`${ this.apiURL }/popular?language=pt-BR&page=1`, {
+      headers: {
+        Authorization: 'Bearer ' + import.meta.env["NG_APP_API_TOKEN_TMDB"]
+      }
+    })
+  }
+
+  getMoviesTopRated(): Observable<any> {
+    return this.http.get(`${ this.apiURL }/top_rated?language=pt-BR&page=1`, {
       headers: {
         Authorization: 'Bearer ' + import.meta.env["NG_APP_API_TOKEN_TMDB"]
       }

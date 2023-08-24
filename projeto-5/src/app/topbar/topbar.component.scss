@@ -1,1 +1,15 @@
+.form-desktop {
+  display: flex;
 
+  @media (max-width: 990px) {
+    display: none;
+  }
+}
+
+.form-phone {
+  display: none;
+
+  @media (max-width: 990px) {
+    display: flex;
+  }
+}

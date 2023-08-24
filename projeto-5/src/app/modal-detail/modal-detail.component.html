@@ -1,0 +1,42 @@
+<div *ngIf="movieDetail" class="modal fade" id="GFG">
+  <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+          <div class="modal-body">
+            <div
+              class="card text-white"
+            >
+            <div class="modal-container-image" data-bs-theme="dark">
+              <img
+                class="card-img"
+                [src]="urlBaseImage + movieDetail.backdrop_path"
+                alt="Card image"
+              />
+              <div class="overlay"></div>
+              <button type="button" class="btn-close"
+                data-bs-dismiss="modal">
+              </button>
+            </div>
+              <div class="container-info card-body d-flex flex-column justify-content-center align-items-start">
+                <h1 class="card-title fw-bold">{{movieDetail.title}}</h1>
+                <p class="card-title fw-semibold">{{movieDetail.overview}}</p>
+                <div class="d-flex">
+
+                  <p class="badge me-2 fs-6 text-bg-light fw-medium">{{movieDetail.runtime + 'min'}}</p>
+                  <p class="badge me-2 fs-6 text-bg-secondary fw-medium">{{movieDetail.release_date}}</p>
+                  <p class="badge fs-6 text-bg-warning  fw-semibold text-gray">{{'IMDb ' + movieDetail.vote_average.toFixed(1)}}</p>
+                </div>
+                <div class="d-flex">
+                  <div class="me-2 badge fs-6 text-bg-info fw-medium" *ngFor="let genre of movieDetail.genres">
+                    {{genre.name}}
+                  </div>
+                </div>
+                <div class="hstack my-4 gap-3 ">
+                  <button type="button" class="btn btn-primary small ml-3">Assistir</button>
+                  <button type="button" class="btn btn-light">Ver depois</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
