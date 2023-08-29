@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "docker-compose": "docker compose -f docker-compose.yml up -d --build"
   },
   "private": true,
   "dependencies": {
