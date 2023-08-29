@@ -3,7 +3,7 @@ export class Category {
     public staticImg: string,
     public gifImg: string,
     public title: string,
-    public href?: string,
+    public category?: string,
   ){}
 
   public hover(): string {
