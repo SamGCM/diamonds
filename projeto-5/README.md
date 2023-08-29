@@ -16,7 +16,7 @@
 
 ![Alt text](images/image-5.png)
 
-> Em seguida a lista de filmes dentro de um carousel, com slide usando egjs conveyer (https://naver.github.io/egjs-conveyer/).
+> Em seguida a lista de filmes dentro de um carousel, com slide usando egjs conveyer (https://naver.github.io/egjs-conveyer/). Infelizmente o uso dela e junto de algumas propriedades css gerou um bug que o scroll-y não acontece quando o mouse está sobre o carrossel.
 
 ## 💻 Pré-requisitos
 
