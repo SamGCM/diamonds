@@ -4,7 +4,21 @@ section {
 
 .carousel-movies-container {
   display: flex;
-  overflow-x: hidden;
-  max-width: 100vw;
-  padding: 20px 0px;
+  position: relative;
+  overflow: scroll hidden;
+  width: 100%;
+  overscroll-behavior: none;
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
 }

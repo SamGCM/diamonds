@@ -1,14 +1,4 @@
 <main>
-    <app-topbar/>
-    <app-banner/>
-    <app-categories-card/>
-    <app-carousel-movies
-      title="Populares"
-      (movieClick)="getMovieDetail($event)"
-    />
-    <app-carousel-movies
-      title="Mais avaliados"
-      (movieClick)="getMovieDetail($event)"
-    />
-    <app-modal-detail movieId={{movieDetailId}} />
+  <app-topbar/>
+  <router-outlet/>
 </main>

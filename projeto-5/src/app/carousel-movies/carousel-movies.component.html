@@ -1,6 +1,10 @@
 <section>
   <h4 class="text-white my-3" >{{ title }}</h4>
-  <div class="carousel-movies-container" ngxConveyer>
+  <div
+    class="carousel-movies-container"
+    ngxConveyer
+    #conveyer="ngxConveyer"
+  >
     <app-poster-movie
       *ngFor="let movie of moviesList"
       [movie]="movie"

@@ -13,6 +13,10 @@ import { NgxConveyerModule } from '@egjs/ngx-conveyer';
 import { HttpClientModule } from '@angular/common/http';
 import { PosterMovieComponent } from './poster-movie/poster-movie.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -23,13 +27,15 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
     CardCategoryComponent,
     CarouselMoviesComponent,
     PosterMovieComponent,
-    ModalDetailComponent
+    ModalDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxConveyerModule,
     HttpClientModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]

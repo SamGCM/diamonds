@@ -4,10 +4,17 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <form class="form-phone" role="search">
-      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
+    <div class="form-mobile" novalidate role="search">
+      <input
+        class="form-control me-2"
+        (input)="valueChange($event)"
+        (keyup.enter)="(searchMovie())"
+        type="search"
+        placeholder="Buscar"
+        aria-label="Search"
+      >
+      <button class="btn btn-outline-success" (click)="(searchMovie())" type="button">Buscar</button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -25,9 +32,9 @@
       </ul>
 
     </div>
-    <form class="form-desktop" role="search">
-      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
+    <div class="form-desktop" novalidate role="search">
+      <input class="form-control me-2" (input)="valueChange($event)" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-outline-success" (click)="(searchMovie())" type="submit">Buscar</button>
+    </div>
   </div>
 </nav>

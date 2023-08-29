@@ -1,0 +1,26 @@
+<app-banner [bannerData]="bannerData" />
+<app-categories-card/>
+<app-carousel-movies
+  title="Populares"
+  [moviesList]="moviesPopularList"
+  (movieClick)="getMovieDetail($event)"
+/>
+<app-carousel-movies
+  title="Mais avaliados"
+  [moviesList]="moviesTopRatedList"
+  (movieClick)="getMovieDetail($event)"
+/>
+
+<app-carousel-movies
+  title="Nos cinemas"
+  [moviesList]="moviesNowPlayingList"
+  (movieClick)="getMovieDetail($event)"
+/>
+
+<app-carousel-movies
+  title="Em Breve"
+  [moviesList]="moviesUpcomingList"
+  (movieClick)="getMovieDetail($event)"
+/>
+
+<app-modal-detail [movieDetail]="movieDetails" />
