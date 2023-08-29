@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap">
+  <div *ngFor="let movie of moviesList">
+    <app-poster-movie
+      *ngIf="movie.backdrop_path"
+      [movie]="movie"
+      data-bs-toggle="modal" data-bs-target="#GFG"
+      (click)="getMovieDetail(movie.id)"
+    />
+  </div>
+</div>
+<app-modal-detail [movieDetail]="movieDetail" />
