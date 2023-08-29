@@ -16,6 +16,7 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HomeComponent } from './home/home.component';
+import { ExplorarComponent } from './explorar/explorar.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     CarouselMoviesComponent,
     PosterMovieComponent,
     ModalDetailComponent,
-    HomeComponent
+    HomeComponent,
+    ExplorarComponent
   ],
   imports: [
     BrowserModule,
