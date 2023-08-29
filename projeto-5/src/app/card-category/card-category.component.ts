@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-category',
@@ -14,12 +15,11 @@ export class CardCategoryComponent {
 
   @Input() title!: string;
 
-  @Input() href!: string;
+  @Input() category!: string;
 
   public src_image: string = ""
 
-  constructor(){
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.src_image = this.category_static
@@ -32,5 +32,9 @@ export class CardCategoryComponent {
   public mouseOut () {
     this.src_image = this.category_static
   }
+
+  redirectCategory() {
+    this.router.navigate(['explorar'], { queryParams: {category: this.category}})
+}
 
 }

@@ -10,7 +10,7 @@ import { dataCategories } from 'src/data/categories';
 export class CategoriesCardComponent {
 
   public categories: Category[] = dataCategories.map(
-    item => new Category(item.img, item.gif, item.title, item.href)
+    item => new Category(item.img, item.gif, item.title, item.category)
   );
 
   constructor(){}
