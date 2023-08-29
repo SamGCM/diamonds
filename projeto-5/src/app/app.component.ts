@@ -9,9 +9,5 @@ import { MovieDetail } from './shared/movieDetail.model';
 export class AppComponent {
   title = 'projeto-5';
 
-  movieDetailId: number;
 
-  getMovieDetail(id: number) {
-    this.movieDetailId = id;
-  }
 }
