@@ -11,11 +11,12 @@ import { MovieDetail } from '../shared/movieDetail.model';
 })
 export class CarouselMoviesComponent implements OnInit {
 
-  public moviesList: Movie[];
+
+  @Input() moviesList: Movie[];
 
   public movieDetail: MovieDetail;
 
-  @Input() title: "Populares" | "Mais avaliados";
+  @Input() title: string;
 
   @Output() movieClick = new EventEmitter<number>();
 
@@ -24,18 +25,6 @@ export class CarouselMoviesComponent implements OnInit {
   ){}
 
   ngOnInit() {
-
-    if(this.title === "Populares") {
-      this.moviesService.getMoviesPopulars().subscribe((response: any) =>{
-        this.moviesList = response.results
-      })
-    }
-
-    if(this.title === "Mais avaliados") {
-      this.moviesService.getMoviesTopRated().subscribe((response: any) =>{
-        this.moviesList = response.results
-      })
-    }
 
   }
 
