@@ -8,7 +8,7 @@
       <input
         class="form-control me-2"
         (input)="valueChange($event)"
-        (keyup.enter)="(searchMovie())"
+        (keydown.enter)="(searchMovie())"
         type="search"
         placeholder="Buscar"
         aria-label="Search"
@@ -33,7 +33,7 @@
 
     </div>
     <div class="form-desktop" novalidate role="search">
-      <input class="form-control me-2" (input)="valueChange($event)" type="search" placeholder="Buscar" aria-label="Search">
+      <input class="form-control me-2" (input)="valueChange($event)" (keydown.enter)="(searchMovie())" type="search" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-outline-success" (click)="(searchMovie())" type="submit">Buscar</button>
     </div>
   </div>
