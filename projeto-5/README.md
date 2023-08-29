@@ -1,27 +1,45 @@
-# Projeto5
+# Nome do projeto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+![GitHub repo size](https://img.shields.io/github/repo-size/SamGCM/diamonds?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/SamGCM/diamonds?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/SamGCM/diamonds?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/SamGCM/diamonds?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/SamGCM/diamonds?style=for-the-badge)
 
-## Development server
+![Alt text](images/image-1.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> A parte inicial do site é composta por um Topbar com links de navegação e um input de pesquisa com redirecionamento para página explorar. O banner é dinâmico mudando a cada atualização da página.
 
-## Code scaffolding
+![Alt text](images/image-3.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Em seguida quatro cards com efeito hover, mudando o background para um gif.
 
-## Build
+![Alt text](images/image-5.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> Em seguida a lista de filmes dentro de um carousel, com slide usando egjs conveyer (https://naver.github.io/egjs-conveyer/).
 
-## Running unit tests
+## 💻 Pré-requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-## Running end-to-end tests
+* Você instalou a versão mais recente de `Node 16.x.x ou maior`
+* Caso deseje usar Docker, existe os arquivos `Dockerfile` e `docker.compose.yml`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## 🚀 Instalando
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para instalar o projeto, siga estas etapas:
+
+```
+npm install
+```
+
+Ver localmente:
+```
+ng serve
+```
+
+Usando docker
+```
+npm run docker-compose
+```
