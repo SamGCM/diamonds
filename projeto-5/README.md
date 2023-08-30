@@ -39,7 +39,12 @@ Ver localmente:
 ng serve
 ```
 
+E acesse http://localhost:4200
+
+
 Usando docker
 ```
 npm run docker-compose
 ```
+
+E acesse http://localhost:8081
