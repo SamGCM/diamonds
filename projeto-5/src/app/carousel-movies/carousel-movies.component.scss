@@ -7,17 +7,16 @@ section {
   position: relative;
   overflow: scroll hidden;
   width: 100%;
-  overscroll-behavior: none;
   user-select: none;
 
   &::-webkit-scrollbar {
     height: 4px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: transparent;
   }
