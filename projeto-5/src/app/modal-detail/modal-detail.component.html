@@ -22,7 +22,7 @@
                 <div class="d-flex">
 
                   <p class="badge me-2 fs-6 text-bg-light fw-medium">{{movieDetail.runtime + 'min'}}</p>
-                  <p class="badge me-2 fs-6 text-bg-secondary fw-medium">{{movieDetail.release_date}}</p>
+                  <p class="badge me-2 fs-6 text-bg-secondary fw-medium">{{movieDetail.release_date | date:'dd/MM/yyyy'}}</p>
                   <p class="badge fs-6 text-bg-warning  fw-semibold text-gray">{{'IMDb ' + movieDetail.vote_average.toFixed(1)}}</p>
                 </div>
                 <div class="d-flex">
