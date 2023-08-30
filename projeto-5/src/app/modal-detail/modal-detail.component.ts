@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { MovieDetail } from '../shared/movieDetail.model';
-import { MoviesService } from '../services/movies.services';
 import { urlBaseImage } from 'src/constants/urlBaseImage';
 
 @Component({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.services';
 import { Movie } from '../shared/movie.model';
 import { MovieDetail } from '../shared/movieDetail.model';
+import { getRandomIdMovie } from 'src/utils/getRandomIdMovie';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit{
     private moviesService: MoviesService
   ){}
   ngOnInit(): void {
-    let randomNumberId = Math.floor(Math.random() * 999);
+    let randomNumberId = getRandomIdMovie();
 
     this.moviesService.getMoviesPopulars().subscribe((response: any) =>{
       this.moviesPopularList = response.results
