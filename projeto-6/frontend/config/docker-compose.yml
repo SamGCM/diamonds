@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  projeto5:
+    image: projeto5
+    build: .
+    environment:
+      NG_APP_API_KEY_TMDB: ${NG_APP_API_KEY_TMDB}
+      NG_APP_API_TOKEN_TMDB: ${NG_APP_API_TOKEN_TMDB}
+    ports:
+      - 8081:80
