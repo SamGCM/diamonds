@@ -1,1 +1,26 @@
 <app-topbar/>
+<div class="flex items-center justify-center">
+
+  <div id="chartColumn">
+    <apx-chart
+        [series]="chartOptionsColumns.series!"
+        [chart]="chartOptionsColumns.chart!"
+        [dataLabels]="chartOptionsColumns.dataLabels!"
+        [plotOptions]="chartOptionsColumns.plotOptions!"
+        [yaxis]="chartOptionsColumns.yaxis!"
+        [xaxis]="chartOptionsColumns.xaxis!"
+        [legend]="chartOptionsColumns.legend!"
+        [colors]="chartOptionsColumns.colors!"
+        [grid]="chartOptionsColumns.grid!"
+      ></apx-chart>
+  </div>
+  <div id="chartPie">
+    <apx-chart
+      [series]="chartOptionsPie.series!"
+      [chart]="chartOptionsPie.chart!"
+      [labels]="chartOptionsPie.labels!"
+      [responsive]="chartOptionsPie.responsive!"
+    ></apx-chart>
+  </div>
+</div>
+
