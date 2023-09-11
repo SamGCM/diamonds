@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./check-register.component.scss']
 })
 export class CheckRegisterComponent {
-
+  showModal = false;
+  toggleModal(){
+    this.showModal = !this.showModal;
+  }
 }
