@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./registers.component.scss']
 })
 export class RegistersComponent {
-
+  dataTable = [{
+    candidate: {
+      name: "Jorge",
+      function: "Desenvolvedor",
+      schooling: "Superior incompleto",
+      email: "jorge@ghotmail.com"
+    }
+  }]
 }
