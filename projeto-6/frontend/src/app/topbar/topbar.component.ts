@@ -10,17 +10,30 @@ export class TopbarComponent {
   @ViewChild('menuDropdown') menu: ElementRef;
   menuState: boolean = false;
 
+  @ViewChild('toggleButtonNav') toggleButtonNav: ElementRef;
+  @ViewChild('menuDropdownNav') menuNav: ElementRef;
+  menuStateNav: boolean = false;
+
   constructor(private renderer: Renderer2) {
     this.renderer.listen('window', 'click',(e:Event)=>{
         if(!this.toggleButton.nativeElement.contains(e.target) && !this.menu.nativeElement.contains(e.target)){
             this.menuState = false;
         }
     });
+
+    this.renderer.listen('window', 'click',(e:Event)=>{
+      if(!this.toggleButtonNav.nativeElement.contains(e.target) && !this.menuNav.nativeElement.contains(e.target)){
+          this.menuStateNav = false;
+      }
+  });
   }
 
   public menuIsShow() {
     this.menuState = !this.menuState
-    console.log(this.menuState)
+  }
+
+  public navMobileIsShow() {
+    this.menuStateNav = !this.menuStateNav
   }
 
 }

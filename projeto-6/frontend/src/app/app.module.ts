@@ -12,6 +12,7 @@ import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { TopbarComponent } from './topbar/topbar.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { RegistersComponent } from './registers/registers.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     CheckRegisterComponent,
     DashboardComponent,
     CandidateComponent,
-    TopbarComponent
+    TopbarComponent,
+    RegistersComponent
   ],
   imports: [
     BrowserModule,
