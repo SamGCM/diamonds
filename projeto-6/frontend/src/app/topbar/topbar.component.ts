@@ -16,14 +16,20 @@ export class TopbarComponent {
 
   constructor(private renderer: Renderer2) {
     this.renderer.listen('window', 'click',(e:Event)=>{
-        if(!this.toggleButton.nativeElement.contains(e.target) && !this.menu.nativeElement.contains(e.target)){
+      if(!this.toggleButton.nativeElement && !this.menu.nativeElement) {
+        if(this.toggleButton.nativeElement.contains(e.target) && this.menu.nativeElement.contains(e.target)){
             this.menuState = false;
         }
+      }
     });
 
+
     this.renderer.listen('window', 'click',(e:Event)=>{
-      if(!this.toggleButtonNav.nativeElement.contains(e.target) && !this.menuNav.nativeElement.contains(e.target)){
-          this.menuStateNav = false;
+      if(!this.toggleButtonNav.nativeElement && !this.menuNav.nativeElement) {
+        if(this.toggleButtonNav.nativeElement.contains(e.target) && this.menuNav.nativeElement.contains(e.target)){
+            this.menuStateNav = false;
+        }
+
       }
   });
   }
