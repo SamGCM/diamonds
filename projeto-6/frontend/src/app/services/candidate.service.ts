@@ -9,6 +9,10 @@ export class CandidateService {
   constructor(private http : HttpClient) {
   }
 
+  create(formData: any) {
+    console.log(formData)
+  }
+
   findAll() {
 
   }

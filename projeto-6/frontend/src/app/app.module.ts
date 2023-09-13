@@ -13,6 +13,17 @@ import { RouterModule } from '@angular/router';
 import { TopbarComponent } from './topbar/topbar.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { RegistersComponent } from './registers/registers.component';
+import { FormCandidateComponent } from './form-candidate/form-candidate.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SelectValidatorDirective } from './shared/SelectValidator.directive';
+import { CandidateService } from './services/candidate.service';
+import { DashboardService } from './services/dashboard.service';
+import { RegisterService } from './services/register.service';
+import { SchoolingService } from './services/schooling.service';
+import { SkillsService } from './services/skills.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DialogComponent } from './dialog/dialog.component';
+import { DocumentValidatorDirective } from './shared/DocumentValidator.directive';
 
 
 @NgModule({
@@ -24,15 +35,27 @@ import { RegistersComponent } from './registers/registers.component';
     DashboardComponent,
     CandidateComponent,
     TopbarComponent,
-    RegistersComponent
+    RegistersComponent,
+    FormCandidateComponent,
+    SelectValidatorDirective,
+    DocumentValidatorDirective,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(ROUTES),
     NgApexchartsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CandidateService,
+    DashboardService,
+    RegisterService,
+    SchoolingService,
+    SkillsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
