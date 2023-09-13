@@ -1,0 +1,267 @@
+<form [formGroup]="candidateForm" (ngSubmit)="onSubmit()" class="p-10">
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">
+        Informações pessoais
+      </h2>
+
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label for="name" class="block text-sm font-medium leading-6 text-gray-900">
+            Nome
+          </label>
+          <div class="mt-2">
+            <input
+              required
+              formControlName="name"
+              type="text"
+              name="name"
+              id="name"
+              autocomplete="given-name"
+              [class]="
+              (name.invalid && (name.dirty || name.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="name.errors?.['required']">
+              Nome é obrigatório.
+            </div>
+        </div>
+      </div>
+
+        <div class="sm:col-span-3">
+          <label for="document" class="block text-sm font-medium leading-6 text-gray-900">
+            CPF
+          </label>
+          <div class="mt-2">
+            <input
+              documentValue
+              formControlName="document"
+              type="text"
+              name="document"
+              id="document"
+              autocomplete="family-name"
+              [class]="
+              (document.invalid && (document.dirty || document.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="document.invalid && (document.dirty || document.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="document.errors?.['required']">
+              CPF é obrigatório.
+            </div>
+
+            <div *ngIf="document.invalid && !document.errors?.['required']">
+              CPF é inválido.
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2 sm:col-start-1">
+          <label for="dateOfBirth" class="block text-sm font-medium leading-6 text-gray-900">
+            Data de nascimento
+          </label>
+          <div class="mt-2">
+            <input
+              formControlName="dateOfBirth"
+              type="text"
+              name="dateOfBirth"
+              id="dateOfBirth"
+              autocomplete="dateOfBirth"
+              [class]="
+              (dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="dateOfBirth.errors?.['required']">
+              Data de nascimento é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
+            Email
+          </label>
+          <div class="mt-2">
+            <input
+              email
+              formControlName="email"
+              type="text"
+              name="email"
+              type="email"
+              id="email"
+              autocomplete="email"
+              [class]="
+              (email.invalid && (email.dirty || email.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="email.errors?.['required']">
+              Email é obrigatório.
+            </div>
+
+            <div *ngIf="email.invalid && !email.errors?.['required']">
+              Email é inválido.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="sm:col-span-2">
+          <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">
+            Celular
+          </label>
+          <div class="mt-2">
+            <input formControlName="phone" type="text" name="phone" id="phone" autocomplete="phone"
+            [class]="
+              (phone.invalid && (phone.dirty || phone.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="phone.errors?.['required']">
+              Celular é obrigatório.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">Informações profissionais</h2>
+
+      <div class="mt-10 space-y-10">
+        <div class="sm:col-span-3">
+          <label for="schooling" class="block text-sm font-medium leading-6 text-gray-900">
+            Escolaridade
+          </label>
+          <div class="mt-2">
+            <select selectValue formControlName="schooling" id="schooling" name="schooling" autocomplete="schooling-name"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+              <option selected value="default">
+                Selecione uma opção
+              </option>
+              <option *ngFor="let schooling of optionsSchooling" >
+                {{schooling}}
+              </option>
+            </select>
+            <div *ngIf="schooling.invalid && (schooling.dirty || schooling.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="schooling.invalid">
+              Escolaridade é obrigatório.
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="mt-10 space-y-10">
+          <div class="sm:col-span-3">
+            <label for="role" class="block text-sm font-medium leading-6 text-gray-900">
+              Função
+            </label>
+            <div class="mt-2 sm:max-w-sm">
+              <input formControlName="role" type="text" name="role" id="role" autocomplete="role"
+              [class]="
+              (role.invalid && (role.dirty || role.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
+              + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
+              "
+            >
+          </div>
+          <div *ngIf="role.invalid && (role.dirty || role.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+
+            <div *ngIf="role.errors?.['required']">
+              Função é obrigatório.
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">Competências</h2>
+        <p class="mt-1 mb-5 text-sm leading-6 text-gray-600">Marque as competências que combinam com você.</p>
+        <div *ngIf="skills.invalid && (skills.dirty || skills.touched)"
+            class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
+          >
+            Competências são obrigatórias.
+        </div>
+        <div class="space-y-10">
+        <fieldset formGroupName="skills">
+          <div class="mt-4" *ngFor="let skill of listOfSkills" >
+
+          <legend class="text-sm font-semibold leading-6 text-gray-900">
+            {{skill.name}}
+          </legend>
+          <p class="mt-1 text-sm leading-6 text-gray-600">
+            {{skill.description}}
+          </p>
+          <div class="mt-6 space-y-6">
+            <div class="flex items-center gap-x-3">
+              <input [formControlName]="skill.name" [value]="{name: skill.name, level: 'Pouco'}" [id]="skill.name" [name]="skill.name" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              <label [for]="skill.name" class="block text-sm font-medium leading-6 text-gray-900">
+                Pouco
+              </label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input [formControlName]="skill.name" [value]="{name: skill.name, level: 'Médio'}" [id]="skill.name" [name]="skill.name" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              <label [for]="skill.name" class="block text-sm font-medium leading-6 text-gray-900">
+                Médio
+              </label>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <input [formControlName]="skill.name" [value]="{name: skill.name, level: 'Muito'}" [id]="skill.name" [name]="skill.name" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              <label [for]="skill.name" class="block text-sm font-medium leading-6 text-gray-900">
+                Muito
+              </label>
+            </div>
+          </div>
+        </div>
+        </fieldset>
+      </div>
+      </div>
+    </div>
+
+  <div class="mt-6 flex items-center justify-end gap-x-6">
+    <a routerLink="/" class="text-sm font-semibold leading-6 text-gray-900">
+      Cancelar
+    </a>
+    <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      Salvar
+    </button>
+  </div>
+</form>
+
+<modal-dialog
+  [data]="dataDialog"
+  [showModal]="showModal"
+  [type]="typeDialog"
+  [action]="actionDialog"
+  (closeModal)="toggleModal()"
+/>
