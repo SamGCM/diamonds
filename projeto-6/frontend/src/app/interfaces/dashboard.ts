@@ -16,7 +16,7 @@ export interface IChart {
   },
   statusRegisters: {
     aguardando: number,
-    reprovados: number,
-    aprovados: number,
+    reprovado: number,
+    aprovado: number,
   }
 }
