@@ -40,6 +40,7 @@
           </label>
           <div class="mt-2">
             <input
+              mask="000.000.000-00"
               documentValue
               formControlName="document"
               type="text"
@@ -73,7 +74,7 @@
           <div class="mt-2">
             <input
               formControlName="dateOfBirth"
-              type="text"
+              type="date"
               name="dateOfBirth"
               id="dateOfBirth"
               autocomplete="dateOfBirth"
@@ -132,7 +133,7 @@
             Celular
           </label>
           <div class="mt-2">
-            <input formControlName="phone" type="text" name="phone" id="phone" autocomplete="phone"
+            <input mask="(00) 0 0000-0000" formControlName="phone" type="text" name="phone" id="phone" autocomplete="phone"
             [class]="
               (phone.invalid && (phone.dirty || phone.touched) ? 'ring-red-600 focus:ring-red-600 text-red-900' : 'focus:ring-indigo-600 text-gray-900')
               + ' block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6'
@@ -142,6 +143,10 @@
           <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
             class="p-2 mb-1 text-sm text-red-800 rounded-lg bg-red-50"
           >
+
+            <div *ngIf="!phone.errors?.['required'] && phone.invalid">
+              Tamanho inválido
+            </div>
 
             <div *ngIf="phone.errors?.['required']">
               Celular é obrigatório.
