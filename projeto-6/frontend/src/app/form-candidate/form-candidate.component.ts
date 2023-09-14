@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { CandidateService } from '../services/candidate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-candidate',
@@ -36,7 +37,8 @@ export class FormCandidateComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private candidateService: CandidateService
+    private candidateService: CandidateService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -47,8 +49,8 @@ export class FormCandidateComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       schooling: ['', Validators.required],
-      role: ['', Validators.required],
-      skills: this.fb.group({
+      function: ['', Validators.required],
+      listSkills: this.fb.group({
         ['Organização']: ['', Validators.required],
         ['Trabalho em equipe']: ['', Validators.required],
         ['Conhecimento Técnico']: ['', Validators.required],
@@ -82,11 +84,23 @@ export class FormCandidateComponent implements OnInit {
   onSubmit() {
     if(!this.candidateForm.valid) {
       this.candidateForm.markAllAsTouched();
-      this.handleModal("Alerta", "Preencha todos os campos", "alert", {actionName: "Ver", actionDialog: () => console.log("viu")})
+      this.handleModal("Alerta", "Preencha todos os campos", "alert")
     }
 
     else {
-      this.candidateService.create(this.candidateForm.values)
+      this.candidateService.create(this.candidateForm.value).subscribe((res: any) => {
+        console.log(res)
+        this.handleModal(
+          "Sucesso",
+          "Inscrição feita com sucesso, você pode ver a situação da sua incrição clicando abaixo. Use seu email para visualizar.",
+          "success",
+          {
+            actionName: "Ver situação",
+            actionDialog: () => this.router.navigate(['/registro'])
+          }
+        )
+
+      })
     }
   }
 
@@ -101,7 +115,7 @@ export class FormCandidateComponent implements OnInit {
   get email() { return this.candidateForm.get('email'); }
   get phone() { return this.candidateForm.get('phone'); }
   get schooling() { return this.candidateForm.get('schooling'); }
-  get role() { return this.candidateForm.get('role'); }
-  get skills() { return this.candidateForm.get('skills'); }
+  get function() { return this.candidateForm.get('function'); }
+  get listSkills() { return this.candidateForm.get('listSkills'); }
 
 }
