@@ -12,6 +12,8 @@ import {
   ApexNonAxisChartSeries,
   ApexResponsive
 } from "ng-apexcharts";
+import { DashboardService } from '../services/dashboard.service';
+import { IChart } from '../interfaces/dashboard';
 
 type ApexXAxis = {
   type?: "category" | "datetime" | "numeric";
@@ -55,98 +57,137 @@ export class DashboardComponent {
   @ViewChild("chartPie") chartPie: ChartComponent;
   public chartOptionsPie: Partial<ChartOptionsPie>;
 
-  constructor() {
-    this.chartOptionsPie = {
-      series: [44, 55, 13, 43, 22],
-      chart: {
-        width: 380,
-        type: "pie"
-      },
-      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
+  constructor(
+    private dashboardService: DashboardService
+  ) {
+
+
+
+  }
+
+  ngOnInit() {
+    this.dashboardService.findAll().subscribe((res: any) => {
+      let chart: IChart = res.charts
+      let chartSchooling: any = chart.schooling
+
+      let dataColumn = [
+          chartSchooling.Analfabeto,
+          chartSchooling.Doutorado,
+          chartSchooling.FundamentalCompleto,
+          chartSchooling.SuperiorIncompleto,
+          chartSchooling.SuperiorCompleto,
+          chartSchooling.Mestrado,
+          chartSchooling.MedioIncompleto,
+          chartSchooling.MedioCompleto,
+          chartSchooling.Ignorado,
+        ]
+
+        this.chartOptionsColumns = {
+          series: [
+            {
+              name: "Candidatos",
+              data: dataColumn
+            }
+          ],
+          chart: {
+            height: 350,
+            width: 500,
+            type: "bar",
+            events: {
+              click: function(chart, w, e) {
+                // console.log(chart, w, e)
+              }
+            }
+          },
+          colors: [
+            "#008FFB",
+            "#00E396",
+            "#FEB019",
+            "#FF4560",
+            "#775DD0",
+            "#546E7A",
+            "#26a69a",
+            "#D10CE8",
+            "#212CB8"
+          ],
+          plotOptions: {
+            bar: {
+              columnWidth: "45%",
+              distributed: true
+            }
+          },
+          dataLabels: {
+            enabled: false
+          },
+          legend: {
+            show: false
+          },
+          grid: {
+            show: false
+          },
+          xaxis: {
+            categories: [
+              ["Analfabeto"],
+              ["Fundamental", "Completo"],
+              ["Médio", "Incompleto"],
+              ["Médio","Completo"],
+              ["Superior" , "Completo"],
+              ["Superior", "Incompleto"],
+              ["Mestrado"],
+              ["Doutorado"],
+              ["Ignorado"]
+            ],
+            labels: {
+              style: {
+                colors: [
+                  "#008FFB",
+                  "#00E396",
+                  "#FEB019",
+                  "#FF4560",
+                  "#775DD0",
+                  "#546E7A",
+                  "#26a69a",
+                  "#D10CE8",
+                  "#212CB8"
+                ],
+                fontSize: "12px"
+              }
             }
           }
-        }
-      ]
-    };
+        };
 
-    this.chartOptionsColumns = {
-      series: [
-        {
-          name: "distibuted",
-          data: [21, 22, 10, 28, 16, 21, 13, 30]
-        }
-      ],
-      chart: {
-        height: 350,
-        width: 500,
-        type: "bar",
-        events: {
-          click: function(chart, w, e) {
-            // console.log(chart, w, e)
-          }
-        }
-      },
-      colors: [
-        "#008FFB",
-        "#00E396",
-        "#FEB019",
-        "#FF4560",
-        "#775DD0",
-        "#546E7A",
-        "#26a69a",
-        "#D10CE8"
-      ],
-      plotOptions: {
-        bar: {
-          columnWidth: "45%",
-          distributed: true
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      legend: {
-        show: false
-      },
-      grid: {
-        show: false
-      },
-      xaxis: {
-        categories: [
-          ["John", "Doe"],
-          ["Joe", "Smith"],
-          ["Jake", "Williams"],
-          "Amber",
-          ["Peter", "Brown"],
-          ["Mary", "Evans"],
-          ["David", "Wilson"],
-          ["Lily", "Roberts"]
+      // this.chartOptionsPie.series = [
+      //   chart.statusRegisters.aguardando,
+      //   chart.statusRegisters.aprovados,
+      //   chart.statusRegisters.reprovados
+      // ]
+
+
+      this.chartOptionsPie = {
+        series: [
+          chart.statusRegisters.aguardando,
+          chart.statusRegisters.reprovado,
+          chart.statusRegisters.aprovado,
         ],
-        labels: {
-          style: {
-            colors: [
-              "#008FFB",
-              "#00E396",
-              "#FEB019",
-              "#FF4560",
-              "#775DD0",
-              "#546E7A",
-              "#26a69a",
-              "#D10CE8"
-            ],
-            fontSize: "12px"
+        chart: {
+          width: 380,
+          type: "pie"
+        },
+        labels: ["Aguardando", "Reprovado", "Aprovado"],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: "bottom"
+              }
+            }
           }
-        }
-      }
-    };
+        ]
+      };
+    })
   }
 }

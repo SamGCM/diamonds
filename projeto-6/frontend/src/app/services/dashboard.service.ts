@@ -4,12 +4,12 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class DashboardService {
-  readonly baseUrl : string = '/';
+  readonly baseUrl : string = 'http://localhost:4000';
 
   constructor(private http : HttpClient) {
   }
 
   findAll() {
-
+    return this.http.get(`${this.baseUrl}/dashboard`)
   }
 }
