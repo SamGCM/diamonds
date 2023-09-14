@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ICandidate } from '../interfaces/candidate';
 import { IRegister } from '../interfaces/register';
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-registers',
@@ -8,31 +9,27 @@ import { IRegister } from '../interfaces/register';
   styleUrls: ['./registers.component.scss']
 })
 export class RegistersComponent {
-  dataTable: IRegister[] = [{
-    id: "13611513",
-    status: "Aprovado",
-    candidate: {
-      dateOfBirth: "27/07/1997",
-      id: "1231651",
-      document: 75365943185,
-      phone: "859871198987",
-      listSkills: [{
-        name: "Teamwork",
-        level: "intermediary"
-      }],
-      name: "Jorge",
-      function: "Desenvolvedor",
-      schooling: "Superior Incompleto",
-      email: "jorge@ghotmail.com"
-    }
-  }]
+  dataTable: IRegister[];
 
   showModal: boolean = false;
   candidateSelected: ICandidate;
 
+  constructor(
+    private registerService: RegisterService,
+  ){}
+
+  ngOnInit(): void {
+    this.getList();
+  }
 
   toggleModal(){
     this.showModal = !this.showModal;
+  }
+
+  private getList() {
+    this.registerService.findAll().subscribe((res: any) => {
+      this.dataTable = res
+    })
   }
 
   setCandidate(candidate: ICandidate) {
@@ -42,10 +39,22 @@ export class RegistersComponent {
 
 
   approveRegistration(registerId: string) {
-
+    this.registerService.update(registerId, "Aprovado").subscribe((res: any) => {
+      this.dataTable.forEach((register: IRegister, index: number) => {
+        if(register.id === res.id) {
+          this.dataTable[index] = res;
+        }
+      })
+    })
   }
 
   rejectRegistration(registerId: string) {
-
+    this.registerService.update(registerId, "Reprovado").subscribe((res: any) => {
+      this.dataTable.forEach((register: IRegister, index: number) => {
+        if(register.id === res.id) {
+          this.dataTable[index] = res;
+        }
+      })
+    })
   }
 }
