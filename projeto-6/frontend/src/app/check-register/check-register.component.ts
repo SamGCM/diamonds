@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegisterService } from '../services/register.service';
+import { ICandidate } from '../interfaces/candidate';
 
 @Component({
   selector: 'app-check-register',
@@ -16,23 +18,47 @@ export class CheckRegisterComponent implements OnInit {
   typeDialog: "alert" | "success" | "error" = "alert"
   actionDialog: Function | null;
 
-  formGetCandidate: any;
+  formGetRegister: any;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private registerService: RegisterService
   ){}
 
   ngOnInit() {
-    this.formGetCandidate = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+    this.formGetRegister = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
     })
   }
 
   onSubmit() {
-    if(!this.formGetCandidate.valid) {
-      this.formGetCandidate.markAllAsTouched();
-      this.handleModal("Alerta", "Preencha todos os campos", "alert")
+
+    if(this.formGetRegister.valid) {
+      this.formGetRegister.markAllAsTouched();
+
+      this.registerService.findAll(this.formGetRegister.value.email).subscribe(
+        (res: any) => {
+          if(res[0]) {
+            let candidate: ICandidate = res[0].candidate
+
+            this.handleModal(
+              res[0].status,
+              `
+              ${candidate.name} - ${candidate.document} - ${candidate.email}
+              `,
+              "alert"
+            )
+          }
+
+          else {
+            this.handleModal(
+              "Inscrição não encontrada",
+              "Não foi encontrada nenhuma inscrição cadastrada com esse email",
+              "error"
+            )
+          }
+        }
+      )
     }
 
   }
@@ -63,6 +89,5 @@ export class CheckRegisterComponent implements OnInit {
     this.showModal = !this.showModal;
   }
 
-  get email() { return this.formGetCandidate.get('email'); }
-  get password() { return this.formGetCandidate.get('password'); }
+  get email() { return this.formGetRegister.get('email'); }
 }

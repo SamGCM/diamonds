@@ -25,8 +25,18 @@ export class CandidateService {
     })
   }
 
-  findAll() {
-    return this.http.get(`${this.baseUrl}/candidate`)
+  findAll(email?: string) {
+    if(email) {
+      return this.http.get(`${this.baseUrl}/candidate`, {
+        params: {
+          email: email
+        }
+      })
+    }
+
+    else {
+      return this.http.get(`${this.baseUrl}/candidate`)
+    }
   }
 
   findOne(id: string) {

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CandidateService } from '../services/candidate.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +21,48 @@ export class LoginComponent {
 
   formGetCandidate: any;
 
-  onSubmit() {
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    private fb: FormBuilder,
+    private candidateService: CandidateService
+  ){
+  }
 
+  ngOnInit() {
+    this.formGetCandidate = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    })
+
+    if(this.authService.isLoggedIn) {
+      this.router.navigate(['dashboard']);
+    }
+  }
+
+  getMessage() {
+    return 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+  }
+
+  login() {
+
+    this.candidateService.findAll(this.formGetCandidate.value.email).subscribe(
+      (res: any) => {
+        if(res[0] && this.formGetCandidate.value.password === res[0].document) {
+          this.authService.login().subscribe(() => {
+            this.router.navigate(['dashboard']);
+          });
+        }
+
+        else {
+          this.handleModal(
+            "Credenciais inválidas",
+            "Não foi possível fazer o login",
+            "error"
+          )
+        }
+      }
+    )
   }
 
   handleModal(title: string, description: string, type: "alert" | "success" | "error", action?: {actionName: string, actionDialog: Function}) {

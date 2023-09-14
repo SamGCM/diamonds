@@ -24,7 +24,7 @@ import { SkillsService } from './services/skills.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
 import { DocumentValidatorDirective } from './shared/DocumentValidator.directive';
-
+import { NgxMaskModule } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -47,14 +47,15 @@ import { DocumentValidatorDirective } from './shared/DocumentValidator.directive
     RouterModule.forRoot(ROUTES),
     NgApexchartsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     CandidateService,
     DashboardService,
     RegisterService,
     SchoolingService,
-    SkillsService
+    SkillsService,
   ],
   bootstrap: [AppComponent]
 })

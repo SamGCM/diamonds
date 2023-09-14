@@ -45,7 +45,7 @@ export class FormCandidateComponent implements OnInit {
     this.candidateForm = this.fb.group({
       name: ['', Validators.required],
       document: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
+      dateOfBirth: ['', Validators.required, Validators],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       schooling: ['', Validators.required],
