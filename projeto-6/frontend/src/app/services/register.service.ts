@@ -9,8 +9,18 @@ export class RegisterService {
   constructor(private http : HttpClient) {
   }
 
-  findAll() {
-    return this.http.get(`${this.baseUrl}/register`)
+  findAll(email?: string) {
+    if(email) {
+      return this.http.get(`${this.baseUrl}/register`, {
+        params: {
+          email: email
+        }
+      })
+    }
+
+    else {
+      return this.http.get(`${this.baseUrl}/register`)
+    }
   }
 
   findOne(id: string) {
