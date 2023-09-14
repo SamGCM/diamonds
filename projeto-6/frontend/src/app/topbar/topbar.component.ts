@@ -1,4 +1,6 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -14,7 +16,11 @@ export class TopbarComponent {
   @ViewChild('menuDropdownNav') menuNav: ElementRef;
   menuStateNav: boolean = false;
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.renderer.listen('window', 'click',(e:Event)=>{
       if(!this.toggleButton.nativeElement && !this.menu.nativeElement) {
         if(this.toggleButton.nativeElement.contains(e.target) && this.menu.nativeElement.contains(e.target)){
@@ -32,6 +38,11 @@ export class TopbarComponent {
 
       }
   });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 
   public menuIsShow() {
