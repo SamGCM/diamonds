@@ -22,6 +22,7 @@
     "apexcharts": "^3.42.0",
     "gerador-validador-cpf": "^5.0.2",
     "ng-apexcharts": "^1.8.0",
+    "ngx-mask": "^14.2.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
