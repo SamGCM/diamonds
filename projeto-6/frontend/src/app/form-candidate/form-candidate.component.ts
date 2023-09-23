@@ -45,7 +45,7 @@ export class FormCandidateComponent implements OnInit {
     this.candidateForm = this.fb.group({
       name: ['', Validators.required],
       document: ['', Validators.required],
-      dateOfBirth: ['', Validators.required, Validators],
+      dateOfBirth: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       schooling: ['', Validators.required],
@@ -88,8 +88,14 @@ export class FormCandidateComponent implements OnInit {
     }
 
     else {
-      this.candidateService.create(this.candidateForm.value).subscribe((res: any) => {
-        console.log(res)
+      let valueObjSkill = 1
+      const listSkillsArr = Object.entries(this.candidateForm.value.listSkills).map(skill => skill[valueObjSkill])
+
+
+      this.candidateService.create({
+        ...this.candidateForm.value,
+        listSkills: listSkillsArr
+      }).subscribe((res: any) => {
         this.handleModal(
           "Sucesso",
           "Inscrição feita com sucesso, você pode ver a situação da sua incrição clicando abaixo. Use seu email para visualizar.",

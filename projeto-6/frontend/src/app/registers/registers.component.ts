@@ -33,7 +33,7 @@ export class RegistersComponent {
   }
 
   setCandidate(candidate: ICandidate) {
-    this.candidateSelected = candidate;
+    this.candidateSelected = {...candidate, dateOfBirth: new Date(candidate.dateOfBirth).toLocaleDateString("pt-br")};
     this.toggleModal()
   }
 

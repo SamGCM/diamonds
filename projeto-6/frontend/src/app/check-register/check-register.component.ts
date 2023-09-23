@@ -42,7 +42,7 @@ export class CheckRegisterComponent implements OnInit {
             let candidate: ICandidate = res[0].candidate
 
             this.handleModal(
-              res[0].status,
+              `Status: ${res[0].status}`,
               `
               ${candidate.name} - ${candidate.document} - ${candidate.email}
               `,

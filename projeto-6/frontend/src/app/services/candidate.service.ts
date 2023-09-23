@@ -11,17 +11,16 @@ export class CandidateService {
   }
 
   create(formData: any) {
-    let dateParts = formData.dateOfBirth.split("/");
 
     return this.http.post(`${this.baseUrl}/candidate`, {
       "name": formData.name,
       "document": formData.document,
-      "dateOfBirth": new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]).toISOString(),
+      "dateOfBirth": new Date(formData.dateOfBirth).toISOString(),
       "email": formData.email,
       "phone": formData.phone,
       "schooling": formData.schooling,
       "function": formData.function,
-      "listOfSkills": [formData.listSkills]
+      "listOfSkills": formData.listSkills
     })
   }
 
