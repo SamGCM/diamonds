@@ -5,7 +5,7 @@ import { ICandidate } from "../interfaces/candidate";
 
 @Injectable()
 export class CandidateService {
-  readonly baseUrl : string = 'http://localhost:4000';
+  readonly baseUrl = import.meta.env["NG_APP_API_URL"];
 
   constructor(private http : HttpClient) {
   }
