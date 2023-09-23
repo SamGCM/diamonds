@@ -46,23 +46,10 @@ export class LoginComponent {
 
   login() {
 
-    this.candidateService.findAll(this.formGetCandidate.value.email).subscribe(
-      (res: any) => {
-        if(res[0] && this.formGetCandidate.value.password === res[0].document) {
-          this.authService.login().subscribe(() => {
-            this.router.navigate(['dashboard']);
-          });
-        }
+    this.authService.login().subscribe(() => {
+      this.router.navigate(['dashboard']);
+    });
 
-        else {
-          this.handleModal(
-            "Credenciais inválidas",
-            "Não foi possível fazer o login",
-            "error"
-          )
-        }
-      }
-    )
   }
 
   handleModal(title: string, description: string, type: "alert" | "success" | "error", action?: {actionName: string, actionDialog: Function}) {
