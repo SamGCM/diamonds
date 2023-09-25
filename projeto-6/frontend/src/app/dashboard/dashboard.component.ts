@@ -72,13 +72,13 @@ export class DashboardComponent {
 
       let dataColumn = [
           chartSchooling.Analfabeto,
-          chartSchooling.Doutorado,
           chartSchooling.FundamentalCompleto,
+          chartSchooling.MedioIncompleto,
+          chartSchooling.MedioCompleto,
           chartSchooling.SuperiorIncompleto,
           chartSchooling.SuperiorCompleto,
           chartSchooling.Mestrado,
-          chartSchooling.MedioIncompleto,
-          chartSchooling.MedioCompleto,
+          chartSchooling.Doutorado,
           chartSchooling.Ignorado,
         ]
 
@@ -93,11 +93,6 @@ export class DashboardComponent {
             height: 350,
             width: 500,
             type: "bar",
-            events: {
-              click: function(chart, w, e) {
-                // console.log(chart, w, e)
-              }
-            }
           },
           colors: [
             "#008FFB",
@@ -131,8 +126,8 @@ export class DashboardComponent {
               ["Fundamental", "Completo"],
               ["Médio", "Incompleto"],
               ["Médio","Completo"],
-              ["Superior" , "Completo"],
               ["Superior", "Incompleto"],
+              ["Superior" , "Completo"],
               ["Mestrado"],
               ["Doutorado"],
               ["Ignorado"]
@@ -155,13 +150,6 @@ export class DashboardComponent {
             }
           }
         };
-
-      // this.chartOptionsPie.series = [
-      //   chart.statusRegisters.aguardando,
-      //   chart.statusRegisters.aprovados,
-      //   chart.statusRegisters.reprovados
-      // ]
-
 
       this.chartOptionsPie = {
         series: [
